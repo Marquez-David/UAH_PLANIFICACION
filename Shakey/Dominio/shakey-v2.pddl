@@ -5,17 +5,9 @@
                  (box-at ?b - box ?x - room) ;Donde esta el objeto
                  (over-box ?s - shakey ?b - box) ;Shakey esta encima de la caja
                  (lighted-room ?x - room) ;La luz de la habitacion esta encendida
-                 (door-open ?x - room)
+                 ;(door-open ?x - room)
                  (adjoining ?x ?y - room) ;Determina si dos habitaciones estan contiguas
                  )
-    
-    ;Shakey abre la puerta de una habitacion
-    (:action open-door
-        :parameters (?x - room ?s - shakey)
-        :precondition (and(shakey-at ?s ?x)
-                          (not(door-open ?x)))
-        :effect (door-open ?x)
-    )
     
     ;Shakey se mueve de un lugar x a un lugar y
     (:action move 
@@ -24,7 +16,6 @@
                            (not (= ?x ?y))
                            (or (adjoining ?x ?y) 
                            (adjoining ?y ?x))
-                           (door-open ?x)
                            )
         :effect (and (shakey-at ?s ?y) 
                      (not(shakey-at ?s ?x)))              
@@ -39,7 +30,6 @@
                            (not (= ?x ?y))
                            (or (adjoining ?x ?y) 
                            (adjoining ?y ?x))
-                           (door-open ?x)
                            )
         :effect (and (box-at ?b ?y)
                      (shakey-at ?s ?y)
