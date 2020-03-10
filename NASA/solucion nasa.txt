@@ -1,0 +1,3 @@
+﻿(board astronauta1 r1 tierra marte)
+(fly astronauta1 r1 tierra marte)
+(debark astronauta1 r1 marte marte)
